@@ -1,0 +1,22 @@
+<MyScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgb: .6, 0., 0.
+            Rectangle:
+                size: self.size
+        StackLayout:
+            size_hint: .8, .1
+            pos_hint: {"x":.1, "top":.8}
+            Button
+                text: 'button1'
+            Button
+                text: 'button2'
+
+        StackLayout:
+            size_hint: .8, .1
+            pos_hint: {"x":.1, "top":.3}
+            Button:
+                text:"another button 1"
+            Button:
+                text:"another button 2"

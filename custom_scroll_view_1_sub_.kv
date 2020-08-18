@@ -1,0 +1,41 @@
+<MyScreen>:
+    FloatLayout:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+
+        GridLayout:
+            cols: 1
+            size_hint_y: None
+            row_default_height: 200
+            height: self.minimum_height
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1., 1.
+                AnchorLayout:
+                    anchor_y: 'top'
+                    anchor_x: 'center'
+                    size_hint: .25, 1.
+                    Image:
+                        center: self.parent.center
+                        top: self.parent.top
+                        source: 'assets/profile.png'
+                AnchorLayout:
+                    anchor_y: 'top'
+                    anchor_x: 'left'
+                    Label
+                        size: 216, 110
+                        size_hint: None, None
+                        markup: True
+                        text: "[size=30][b]How to Operate[/b][/size]\nSome text here \n[size=30][b]Some title[/b][/size]\nSome more text"
+
+            Button:
+                text: "2"
+            Button:
+                text: "3"
+            Button:
+                text: "4"
+            Button:
+                text: "5"
+            Button:
+                text: "6"

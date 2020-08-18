@@ -1,0 +1,32 @@
+#:include screen1.kv
+#:include screen2.kv
+
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+
+ScreenManager:
+    transition: NoTransition()
+
+
+    Screen:
+        name: "main_screen"
+
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                text: "main screen"
+            Button:
+                text: "to screen 1"
+                on_press:
+                    app.root.current = "screen1"
+                    root.manager.transition.direction = 'right'
+            Button:
+                text: "to screen 2"
+                on_press:
+                    app.root.current = "screen2"
+                    root.manager.transition.direction = 'left'
+
+    Screen1:
+
+    Screen2:

@@ -1,0 +1,121 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgb: .6, .6, .6
+        Rectangle:
+            size: self.size
+
+
+<MyScreen>:
+    BoxLayout:
+        size_hint_y: None
+        height: '48dp'
+
+        ToggleButton:
+            id: tbh
+            text: 'Horizontal'
+            group: 'accordion'
+            state: 'down'
+
+        ToggleButton:
+            text: 'Vertical'
+            group: 'accordion'
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        canvas.before:
+            Color:
+                rgb: .6, 0., 0.
+            Rectangle:
+                size: self.size
+                source: 'assets/background.png'
+        Accordion:
+            orientation: 'vertical'
+            height: 12*80
+            size_hint_y: None
+            AccordionItem:
+                title: 'Panel 1'
+                Label:
+                    text: 'Panel #1'
+                    text_size: self.width, 30
+
+            AccordionItem:
+                title: 'Panel 2'
+                Button:
+                    text: 'A button, what else?'
+
+            AccordionItem:
+                title: 'Panel 3'
+                Label:
+                    text: 'Panel #3'
+                    text_size: self.width, None
+
+            AccordionItem:
+                title: 'Panel 4'
+                Label:
+                    text: 'Panel #4'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 5'
+                Label:
+                    text: 'Panel #5'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 5'
+                Label:
+                    text: 'Panel #5'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 6'
+                Label:
+                    text: 'Panel #6'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 7'
+                Label:
+                    text: 'Panel #7'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 8'
+                Label:
+                    text: 'Panel #8'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 9'
+                Label:
+                    text: 'Panel #9'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 10'
+                canvas.before:
+                    Color:
+                        rgb: .6, 0., 0.
+                    Rectangle:
+                        size: self.size
+                Label:
+                    text: 'Panel #10'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 11'
+                canvas.before:
+                    Color:
+                        rgb: .6, 0., 0.
+                    Rectangle:
+                        size: self.size
+                Label:
+                    text: 'Panel #11'
+                    text_size: self.width, None
+            AccordionItem:
+                title: 'Panel 12'
+                canvas.before:
+                    Color:
+                        rgb: .6, 0., 0.
+                    Rectangle:
+                        size: self.size
+                Label:
+                    text: 'Panel #12'
+                    text_size: self.width, None
+

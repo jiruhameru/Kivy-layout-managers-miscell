@@ -1,0 +1,24 @@
+<PreScreen>:
+    name:"pre"
+    BoxLayout:
+        padding: 10
+        size_hint:.8, .2
+        pos_hint:{"x":0.1, "top":.99}
+        Button:
+            text:"t"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.loadList()
+
+
+<ListScreen>:
+    name:"speakers"
+    ScrollView:
+
+        GridLayout:
+            id: container
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            row_force_default: True
+            row_default_height: dp(26)

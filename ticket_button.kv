@@ -1,0 +1,22 @@
+<MyScreen>:
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+        GridLayout:
+            size_hint: .8, .6
+            rows:3
+            spacing: 30
+            padding: 30
+            AnchorLayout:
+                anchor_x: 'center'
+                Button
+                    size: 216, 110
+                    size_hint: None, None
+                    text: 'button1'
+                    font_size: '25dp'
+                    background_normal: 'assets/ticket_off.png'
+                    background_down: 'assets/ticket_on.png'
+            Button
+                text: 'button 2'
+            Button
+                text: 'button 3'

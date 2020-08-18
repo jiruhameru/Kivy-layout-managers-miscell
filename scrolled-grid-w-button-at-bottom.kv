@@ -1,0 +1,33 @@
+<MyScreen>:
+    FloatLayout:
+        ScrollView:
+            size_hint:.8, .7
+            pos_hint:{"x":0.1, "top":1.}
+
+            do_scroll_x: False
+            do_scroll_y: True
+
+            GridLayout:
+                cols: 1
+                size_hint_y: None
+                row_default_height: 200
+                height: self.minimum_height
+                Button:
+                    text: "1"
+                Button:
+                    text: "2"
+                Button:
+                    text: "3"
+                Button:
+                    text: "4"
+                Button:
+                    text: "5"
+                Button:
+                    text: "6"
+        AnchorLayout:
+            size_hint:.6, .1
+            pos_hint:{"x":0.2, "top":.2}
+            anchor_x: 'center'
+            anchor_y: 'center'
+            Button:
+                text: "Button"

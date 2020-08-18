@@ -1,0 +1,24 @@
+<MyScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgb: .6, 0., 0.
+            Rectangle:
+                size: self.size
+        GridLayout:
+            rows:2
+            size_hint: .8, .2
+            pos_hint: {"x":.1, "top":.8}
+            Button
+                text: 'button1'
+            Button
+                text: 'button2'
+
+        GridLayout:
+            rows:2
+            size_hint: .8, .2
+            pos_hint: {"x":.1, "top":.3}
+            Button:
+                text:"another button 1"
+            Button:
+                text:"another button 2"

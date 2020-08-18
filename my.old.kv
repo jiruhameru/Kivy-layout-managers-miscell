@@ -1,0 +1,33 @@
+<Controller>:
+    size_hint: 1., 1.
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    do_default_tab: False
+
+    layout_content: layout_content
+    tab1_refresh_btn: tab1_refresh_btn
+
+    BoxLayout:
+        id: bl
+        orientation: 'vertical'
+
+        ScrollView:
+            size_hint: 1.0,0.7
+
+            GridLayout:
+                id: layout_content
+                height: root.h
+                size_hint_y: None
+                cols: 1
+                row_default_height: '100dp'
+                row_force_default: True
+                spacing: 0, 5
+
+        BoxLayout:
+            size_hint: 1.0,None
+            height: 25
+
+            Button:
+                id: tab1_refresh_btn
+                text: 'Refresh'
+                size: 100,25
+                on_release: root.refresh()

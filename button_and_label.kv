@@ -1,0 +1,20 @@
+<MyScreen>:
+    FloatLayout:
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: .8, .1
+            pos_hint: {"x":.1, "top":.8}
+            Button
+                text: 'button1'
+            Label
+                text_size: self.width, None
+                padding: 10, 10
+                v_align: 'top'
+                text: 'label'
+            Label
+                text_size: self.width, self.height
+                v_align: 'left'
+                h_align: 'top'
+                markup: True
+                text: "[size=25][b]How to Operate[/b][/size]\n[size=10][b]Some title[/b][/size]\nSome text here"
+

@@ -1,0 +1,17 @@
+<MyScreen>:
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'top'
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: .8, .2
+                canvas.before:
+                    Color:
+                        rgb: .6, .6, .6
+                    Rectangle:
+                        size: self.size
+                Button
+                    text: 'button1'
+                Button
+                    text: 'button2'

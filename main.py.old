@@ -1,0 +1,128 @@
+# -*- coding: utf-8 -*-
+
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.uix.screenmanager import Screen
+
+from kivy.uix.screenmanager import Screen
+
+from kivymd.app import MDApp
+from kivymd.uix.button import MDRectangleFlatButton
+from kivy.uix.rst import RstDocument
+from kivy.lang import Builder
+import os
+import kivy.resources
+from kivy.core.text import LabelBase, DEFAULT_FONT
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.boxlayout import BoxLayout
+from kivy.app import App
+from kivy.properties import ObjectProperty
+from kivy.uix.tabbedpanel import TabbedPanel
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.clock import mainthread
+
+import time
+import threading
+from kivy.clock import Clock
+from kivy.properties import NumericProperty
+from kivy.metrics import dp
+
+
+
+
+kivy.resources.resource_add_path('/usr/share/fonts/')
+LabelBase.register(DEFAULT_FONT, "truetype/takao-gothic/TakaoPGothic.ttf")
+#LabelBase.register(DEFAULT_FONT, "opentype/noto/NotoSansCJK-Bold.ttc")
+
+
+# with open('my.kv', encoding='utf8') as f:
+#     Builder.load_string(f.read())
+
+
+class LicensScreen(Screen):
+    text = ""
+    with open("assets/inFileII.txt") as fobj:
+        for line in fobj:
+            text += line
+
+class myJobEntry(BoxLayout):
+    def __init__(self):
+        super(myJobEntry, self).__init__()
+
+    def addStuff(self,runindex,program):
+        b1 = Button(text=runindex,size_hint=(None,1.0),width=100)
+        # b2 = TextInput(text=program,height=80)
+        #
+        # hbox1 = BoxLayout(orientation='horizontal')
+        vbox1 = BoxLayout(orientation='vertical')
+        for ind in range(int(runindex), 0, -1):
+            vbox1.add_widget(Button(text='{}'.format(ind)))
+
+        # for i in range(runindex):
+        #     vbox1.add_widget(Button(text='{}'.format(i)))
+
+        # vbox1.add_widget(hbox1)
+        # vbox1.add_widget(b1)
+
+        # self.add_widget(b1)
+        self.add_widget(vbox1)
+
+class Controller(TabbedPanel):
+    '''Create a controller that receives a custom widget from the kv lang file.
+    Add an action to be called from the kv lang file.
+    '''
+    layout_content = ObjectProperty()
+    tab1_refresh_btn = ObjectProperty()
+    #tab1_pgbar = ObjectProperty()
+    text_input = ObjectProperty()
+    i = 3
+    h = NumericProperty(0)
+
+    def addSeveralObjects(self, *args):
+        self.layout_content.enabled=False
+        myObj = myJobEntry()
+
+
+        myObj.addStuff('{}'.format(self.i), '{}'.format(self.i))
+        self.layout_content.add_widget(myObj)
+        # if self.i % 4 == 0:
+        #     self.h += dp(420)
+        #self.updateBar()
+        ##self.i += 1
+        # if self.i >= 100:
+        #     self.clock.cancel()
+
+    def refresh(self):
+        self.tab1_refresh_btn.enabled = False
+        #self.clock =Clock.schedule_interval(self.addSeveralObjects, .5)
+        self.addSeveralObjects()
+        self.resetRefreshButton()
+
+
+    def resetRefreshButton(self):
+        self.tab1_refresh_btn.text = 'Last Refresh: {}'.format(time.ctime())
+        self.tab1_refresh_btn.enabled = True
+
+    # def updateBar(self):
+    #     self.tab1_pgbar.value += 1
+
+class MyScreen(Screen):
+    pass
+
+class MyApp(MDApp):
+    def build(self):
+        return MyScreen()
+
+
+class MyApp(App):
+    def build(self):
+        #return MyScreen()
+        #return LicensScreen()
+        return Controller()
+
+
+if __name__ == "__main__":
+    MyApp().run()
+
+
